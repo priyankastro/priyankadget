@@ -33,21 +33,21 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: strapi-app
-          path: site/wwwroot/api
+          path: .
 
-      - name: Install dependencies for Next.js app
-        working-directory: site/wwwroot/ui
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      # - name: Install dependencies for Next.js app
+      #   working-directory: site/wwwroot/ui
+      #   run: |
+      #     npm install
+      #     npm run build --if-present
+      #     npm run test --if-present
       
-      - name: Upload artifact for deployment job
-        working-directory: site/wwwroot/ui
-        uses: actions/upload-artifact@v2
-        with:
-          name: next-app
-          path: site/wwwroot/ui
+      # - name: Upload artifact for deployment job
+      #   working-directory: site/wwwroot/ui
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: next-app
+      #     path: site/wwwroot/ui
 
   deploy:
     runs-on: windows-latest
@@ -76,21 +76,21 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
           package: site/wwwroot/api
 
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: next-app
+      # - name: Download artifact from build job
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: next-app
       
-      - name: Build and export Next.js app
-        working-directory: site/wwwroot/ui
-        run: |
-          npm run start
+      # - name: Build and export Next.js app
+      #   working-directory: site/wwwroot/ui
+      #   run: |
+      #     npm run start
 
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'priyankadget'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
-          package: site/wwwroot/ui
+      # - name: 'Deploy to Azure Web App'
+      #   uses: azure/webapps-deploy@v2
+      #   id: deploy-to-webapp
+      #   with:
+      #     app-name: 'priyankadget'
+      #     slot-name: 'Production'
+      #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
+      #     package: site/wwwroot/ui
