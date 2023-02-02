@@ -63,9 +63,9 @@ jobs:
           name: strapi-app
       
       - name: Build and export strapi app
-      working-directory: site/wwwroot/strapi
-      run: |
-        npm run develop
+        working-directory: site/wwwroot/strapi
+        run: |
+          npm run develop
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -82,9 +82,9 @@ jobs:
           name: next-app
       
       - name: Build and export Next.js app
-      working-directory: site/wwwroot/ui
-      run: |
-        npm run start
+        working-directory: site/wwwroot/ui
+        run: |
+          npm run start
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
