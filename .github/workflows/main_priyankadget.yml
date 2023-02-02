@@ -21,20 +21,36 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: Install dependencies for strapi app
+        working-directory: site/wwwroot/api
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
       
       - name: Upload artifact for deployment job
+        working-directory: site/wwwroot/api
         uses: actions/upload-artifact@v2
         with:
-          name: node-app
-          path: .
+          name: strapi-app
+          path: site/wwwroot/api
+
+      - name: Install dependencies for Next.js app
+        working-directory: site/wwwroot/ui
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
+      
+      - name: Upload artifact for deployment job
+        working-directory: site/wwwroot/ui
+        uses: actions/upload-artifact@v2
+        with:
+          name: next-app
+          path: site/wwwroot/ui
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'Production'
@@ -44,7 +60,12 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: node-app
+          name: strapi-app
+      
+      - name: Build and export strapi app
+      working-directory: site/wwwroot/strapi
+      run: |
+        npm run develop
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -52,5 +73,24 @@ jobs:
         with:
           app-name: 'priyankadget'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9EC2790AB46E49B9BC39164FAF0D9979 }}
-          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
+          package: site/wwwroot/api
+
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: next-app
+      
+      - name: Build and export Next.js app
+      working-directory: site/wwwroot/ui
+      run: |
+        npm run start
+
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
+        with:
+          app-name: 'priyankadget'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
+          package: site/wwwroot/ui
