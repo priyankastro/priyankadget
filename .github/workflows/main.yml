@@ -33,7 +33,7 @@ jobs:
         app-name: 'priyankadget'
         slot-name: 'Production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
-        package: ./api
+        package: .
 
     - name: Install dependencies for Next.js app
       working-directory: ./ui
@@ -52,4 +52,4 @@ jobs:
         app-name: 'priyankadget'
         slot-name: 'Production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
-        package: ./ui
+        package: .
