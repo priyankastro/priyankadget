@@ -23,7 +23,7 @@ jobs:
         node-version: '18.x'
 
     - name: Install dependencies for Node.js app (Strapi)
-      working-directory: site\wwwroot\api
+      working-directory: C:\home\site\wwwroot\api
       run: |
         npm i
 
@@ -33,15 +33,15 @@ jobs:
         app-name: 'priyankadget'
         slot-name: 'Production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
-        package: site\wwwroot\api
+        package: C:\home\site\wwwroot\api
 
     - name: Install dependencies for Next.js app
-      working-directory: site\wwwroot\ui
+      working-directory: C:\home\site\wwwroot\ui
       run: |
         npm i
 
     - name: Build and export Next.js app
-      working-directory: site\wwwroot\ui
+      working-directory: C:\home\site\wwwroot\ui
       run: |
         npm next build
         npm next start
@@ -52,4 +52,4 @@ jobs:
         app-name: 'priyankadget'
         slot-name: 'Production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
-        package: site\wwwroot\ui
+        package: C:\home\site\wwwroot\ui
