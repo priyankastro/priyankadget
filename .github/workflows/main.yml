@@ -31,7 +31,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'priyankadget'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
         package: ./api
 
     - name: Install dependencies for Next.js app
@@ -49,5 +49,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'priyankadget'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE0F9B149CED42D884D82F56B4FD15F9 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
         package: ./ui
