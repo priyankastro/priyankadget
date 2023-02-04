@@ -79,6 +79,7 @@ jobs:
     
     - name: Create archive
       run: |
+        cd api
         rm -f artifact.zip
         zip -r artifact.zip
 
