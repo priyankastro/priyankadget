@@ -33,4 +33,4 @@ jobs:
         package: /home/site/wwwroot/api/dist/build
         app-name: priyankadget
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-        additional-args: -d C:\home\site\wwwroot\api
+        # additional-args: -d C:\home\site\wwwroot\api
