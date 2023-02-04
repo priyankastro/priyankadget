@@ -79,6 +79,7 @@ jobs:
     
     - name: Create archive
       run: |
+        rm -f artifact.zip
         zip -r artifact.zip
 
     - name: Upload artifact for deployment job
