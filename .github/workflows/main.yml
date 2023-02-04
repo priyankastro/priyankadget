@@ -30,7 +30,7 @@ jobs:
     - name: Publish Strapi App
       uses: azure/webapps-deploy@v2
       with:
-        package: '${{ env.GITHUB_WORKSPACE }}/public'
+        package: '${{ env.GITHUB_WORKSPACE }}'
         app-name: priyankadget
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
         # additional-args: -d C:\home\site\wwwroot\api
