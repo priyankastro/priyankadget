@@ -77,17 +77,14 @@ jobs:
         npm install
         npm run build
     
-    - name: Create archive
-      run: |
-        cd api
-        rm -f artifact.zip
-        zip -r artifact.zip
+    - name: Zip artifact for deployment
+      run: zip release.zip ./* -r
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
       with:
         name: node-app
-        path: ./artifact.zip
+        path: artifact.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -101,6 +98,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: node-app
+    
+    - name: unzip artifact for deployment
+      run: unzip release.zip
 
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp 
