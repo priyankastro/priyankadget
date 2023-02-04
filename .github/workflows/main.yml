@@ -1,4 +1,4 @@
-name: Build and deploy Node.js app to Azure Web App - priyankadget
+name: Deploy Strapi App
 
 on:
   push:
@@ -6,48 +6,31 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  NODE_ENV: production
-
 jobs:
-  deploy:
-    runs-on: windows-latest
+  build:
+    runs-on: linux-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+      with:
+        ref: main
+    
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '18.x'
+        node-version: '18.x' 
 
-    - name: Install dependencies for Node.js app (Strapi)
+    - name: Build Strapi App
+      run: |
+        npm ci
+        npm run build
       working-directory: ./api
-      run: |
-        npm i
 
-    - name: Deploy Node.js app to Azure App Service
+    - name: Publish Strapi App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'priyankadget'
+        package: /home/site/wwwroot/api/dist/build
+        app-name: priyankadget
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-        package: ./api
-
-    - name: Install dependencies for Next.js app
-      working-directory: ./ui
-      run: |
-        npm i
-
-    - name: Build and export Next.js app
-      working-directory: ./ui
-      run: |
-        npm next build
-        npm next start
-
-    - name: Deploy Next.js app to Azure App Service
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'priyankadget'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-        package: ./ui
+        additional-args: -d C:\home\site\wwwroot\api
