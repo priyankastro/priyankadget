@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - priyankadget
+# name: Build and deploy Node.js app to Azure Web App - priyankadget
 
 # on:
 #   push:
@@ -95,56 +95,56 @@ name: Build and deploy Node.js app to Azure Web App - priyankadget
       #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
       #     package: site/wwwroot/ui
 
-name: Build and deploy Node.js app to Azure Web App - priyankadget
+# name: Build and deploy Node.js app to Azure Web App - priyankadget
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
 
-env:
-  NODE_ENV: production
+# env:
+#   NODE_ENV: production
 
-jobs:
-  deploy:
-    runs-on: windows-latest
+# jobs:
+#   deploy:
+#     runs-on: windows-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18.x'
+#     - name: Setup Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '18.x'
 
-    - name: Install dependencies for Node.js app (Strapi)
-      working-directory: ./api
-      run: |
-        npm i
+#     - name: Install dependencies for Node.js app (Strapi)
+#       working-directory: ./api
+#       run: |
+#         npm i
 
-    - name: Deploy Node.js app to Azure App Service
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'priyankadget'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-        package: ./api
+#     - name: Deploy Node.js app to Azure App Service
+#       uses: azure/webapps-deploy@v2
+#       with:
+#         app-name: 'priyankadget'
+#         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
+#         package: ./api
 
-    - name: Install dependencies for Next.js app
-      working-directory: ./ui
-      run: |
-        npm i
+#     - name: Install dependencies for Next.js app
+#       working-directory: ./ui
+#       run: |
+#         npm i
 
-    - name: Build and export Next.js app
-      working-directory: ./ui
-      run: |
-        npm next build
-        npm next start
+#     - name: Build and export Next.js app
+#       working-directory: ./ui
+#       run: |
+#         npm next build
+#         npm next start
 
-    - name: Deploy Next.js app to Azure App Service
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'priyankadget'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-        package: ./ui
+#     - name: Deploy Next.js app to Azure App Service
+#       uses: azure/webapps-deploy@v2
+#       with:
+#         app-name: 'priyankadget'
+#         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
+#         package: ./ui
