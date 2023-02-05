@@ -84,7 +84,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: node-app
-        path: artifact/
+        path: dist/
 
   deploy:
     runs-on: ubuntu-latest
