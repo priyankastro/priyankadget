@@ -90,18 +90,15 @@ jobs:
   deploy:
     runs-on: windows-latest
     needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-#     - name: Download artifact from build job
-#       uses: actions/download-artifact@v3
-#       with:
-#         name: strapi-app
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v3
+      with:
+        name: strapi-app
     
-#     - name: unzip artifact for deployment
-#       run: unzip api/api.zip
+    - name: unzip artifact for deployment
+      run: 7z x artifact-api.zip /api
 
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp 
@@ -109,4 +106,4 @@ jobs:
       with:
         app-name: 'priyankadget'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-        package: .
+        package: /api
