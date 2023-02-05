@@ -98,7 +98,7 @@ jobs:
         name: strapi-app
     
     - name: unzip artifact for deployment
-      run: 7z x artifact-api.zip /api
+      run: unzip artifact-api.zip /api
 
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp 
