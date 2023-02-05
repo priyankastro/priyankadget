@@ -79,7 +79,7 @@ jobs:
 
     - name: Package the application
       run: |
-        7z a -tzip -r artifact-api.zip .
+        7z a -tzip -r artifact-api.zip ./api
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
