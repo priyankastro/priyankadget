@@ -78,13 +78,15 @@ jobs:
         npm run build
     
     - name: Zip artifact for deployment
-      run: zip release ./* -r
+      run: |
+        rm -f api.zip
+        zip -r api.zip api/
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
-        name: node-app
-        path: api/
+        name: strapi-app
+        path: api/api.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -97,10 +99,10 @@ jobs:
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
       with:
-        name: node-app
+        name: strapi-app
     
     - name: unzip artifact for deployment
-      run: unzip release
+      run: unzip api/api.zip
 
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp 
