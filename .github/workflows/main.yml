@@ -80,7 +80,6 @@ jobs:
     - name: Package the application
       run: |
         7z a -tzip -r artifact-api.zip .
-        mkdir /home/site/wwwroot/api
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
@@ -110,4 +109,4 @@ jobs:
       with:
         app-name: 'priyankadget'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-        package: ./api
+        package: .
