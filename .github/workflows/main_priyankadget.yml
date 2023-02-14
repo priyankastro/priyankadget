@@ -1,150 +1,56 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-# name: Build and deploy Node.js app to Azure Web App - priyankadget
+name: Build and deploy Node.js app to Azure Web App - priyankadget
 
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-# jobs:
-#   build:
-#     runs-on: windows-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
-#       - name: Set up Node.js version
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: '18.x'
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.x'
 
-#       - name: Install dependencies for strapi app
-#         working-directory: site/wwwroot/api
-#         run: |
-#           npm install
-#           npm run build --if-present
-#           npm run test --if-present
-      
-#       - name: Upload artifact for deployment job
-#         working-directory: site/wwwroot/api
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: strapi-app
-#           path: .
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
-      # - name: Install dependencies for Next.js app
-      #   working-directory: site/wwwroot/ui
-      #   run: |
-      #     npm install
-      #     npm run build --if-present
-      #     npm run test --if-present
-      
-      # - name: Upload artifact for deployment job
-      #   working-directory: site/wwwroot/ui
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: next-app
-      #     path: site/wwwroot/ui
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: node-app
+          path: .
 
-  # deploy:
-  #   runs-on: windows-latest
-  #   needs: build
-  #   environment:
-  #     name: 'Production'
-  #     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-  #   steps:
-  #     - name: Download artifact from build job
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: strapi-app
-      
-  #     - name: Build and export strapi app
-  #       working-directory: site/wwwroot/strapi
-  #       run: |
-  #         npm run develop
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: node-app
 
-  #     - name: 'Deploy to Azure Web App'
-  #       uses: azure/webapps-deploy@v2
-  #       id: deploy-to-webapp
-  #       with:
-  #         app-name: 'priyankadget'
-  #         slot-name: 'Production'
-  #         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-  #         package: site/wwwroot/api
-
-      # - name: Download artifact from build job
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: next-app
-      
-      # - name: Build and export Next.js app
-      #   working-directory: site/wwwroot/ui
-      #   run: |
-      #     npm run start
-
-      # - name: 'Deploy to Azure Web App'
-      #   uses: azure/webapps-deploy@v2
-      #   id: deploy-to-webapp
-      #   with:
-      #     app-name: 'priyankadget'
-      #     slot-name: 'Production'
-      #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-      #     package: site/wwwroot/ui
-
-# name: Build and deploy Node.js app to Azure Web App - priyankadget
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
-
-# env:
-#   NODE_ENV: production
-
-# jobs:
-#   deploy:
-#     runs-on: windows-latest
-
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v2
-
-#     - name: Setup Node.js
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: '18.x'
-
-#     - name: Install dependencies for Node.js app (Strapi)
-#       working-directory: ./api
-#       run: |
-#         npm i
-
-#     - name: Deploy Node.js app to Azure App Service
-#       uses: azure/webapps-deploy@v2
-#       with:
-#         app-name: 'priyankadget'
-#         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-#         package: ./api
-
-#     - name: Install dependencies for Next.js app
-#       working-directory: ./ui
-#       run: |
-#         npm i
-
-#     - name: Build and export Next.js app
-#       working-directory: ./ui
-#       run: |
-#         npm next build
-#         npm next start
-
-#     - name: Deploy Next.js app to Azure App Service
-#       uses: azure/webapps-deploy@v2
-#       with:
-#         app-name: 'priyankadget'
-#         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1 }}
-#         package: ./ui
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'priyankadget'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
+          package: .
