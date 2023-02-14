@@ -22,15 +22,29 @@ jobs:
           node-version: '18.x'
 
       - name: npm install, build, and test
+        working-directory: ./api
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
-
-      - name: Upload artifact for deployment job
+          
+      - name: Upload artifact for deployment job strapi
         uses: actions/upload-artifact@v2
         with:
-          name: node-app
+          name: strapi-app
+          path: .
+          
+      - name: npm install, build, and test
+        working-directory: ./ui
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
+      
+      - name: Upload artifact for deployment job next
+        uses: actions/upload-artifact@v2
+        with:
+          name: next-app
           path: .
 
   deploy:
@@ -38,19 +52,31 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: ${{ steps.deploy-to-webapp-strapi.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact from build job strapi
         uses: actions/download-artifact@v2
         with:
-          name: node-app
+          name: strapi-app
 
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
+      - name: 'Deploy to Azure Web App - Strapi'
+        id: deploy-to-webapp-strapi
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'priyankadget'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: .
+          package: ./api
+          
+      - name: Download artifact from build job strapi
+        uses: actions/download-artifact@v2
+        with:
+          name: next-app
+
+      - name: 'Deploy to Azure Web App - Next'
+        id: deploy-to-webapp-next
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'priyankadget'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
+          package: ./ui
