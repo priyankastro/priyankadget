@@ -29,7 +29,7 @@ jobs:
           npm run test --if-present
       
       - name: Archive files strapi
-        run: tar -czvf strapi-build.tar.gz .
+        run: tar -czvf strapi-build.tar.gz ./api
           
       - name: Upload artifact for deployment job strapi
         uses: actions/upload-artifact@v2
@@ -45,7 +45,7 @@ jobs:
           npm run test --if-present
       
       - name: Archive files next
-        run: tar -czvf next-build.tar.gz .
+        run: tar -czvf next-build.tar.gz ./ui
         
       - name: Upload artifact for deployment job next
         uses: actions/upload-artifact@v2
