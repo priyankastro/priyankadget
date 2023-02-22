@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '../styles/Navbar.module.css'
+import styles from './navbar.module.css'
 
 const MENU_LIST = [
   { text: 'About', href: '/about', icon: 'svg/user.svg' },

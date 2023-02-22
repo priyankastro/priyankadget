@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { getPublicUrlFetch } from "../lib/interceptor";
+import { getPublicUrlFetch } from "../../lib/interceptor";
 export const getStaticProps: GetStaticProps = async () => {
     const response = await getPublicUrlFetch('about');
     return {

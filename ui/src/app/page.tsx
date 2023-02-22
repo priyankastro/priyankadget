@@ -1,34 +1,27 @@
-import Head from 'next/head'
+"use client"
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { GetStaticProps } from "next";
-import { getPublicUrlFetch } from "../lib/interceptor";
+import { Inter } from '@next/font/google'
+import styles from './page.module.css'
+import { getPublicUrlFetch } from "../../lib/interceptor";
 import { useEffect, useState } from 'react';
-import DOMPurify from 'isomorphic-dompurify';
+// import DOMPurify from 'isomorphic-dompurify';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await getPublicUrlFetch('home');
-  return {
-    props: {
-      data: response.data.attributes,
-    },
-  };
-}
+// const getData = async () => {
+//   const response = await getPublicUrlFetch('home');
+//   return {
+//     props: {
+//       data: response.data.attributes,
+//     },
+//   };
+// }
+
 export default function Home({ data }: any) {
-  const desc = data.description
+  // const desc = data.description
   useEffect(() => {
 
   }, [])
-
   return (
     <div>
-      <Head>
-        <title>Priyanka Das</title>
-        <meta name="description" content="Created by Priyanka" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <div className="flex pb-5">
         <div className="flex-none mx-1 px-5">
           <Image className={`position-absolute ${styles.img_hi}`} src={'/images/img_hi.png'} alt={'hi'} width={250} height={250}></Image>
@@ -42,7 +35,7 @@ export default function Home({ data }: any) {
       </div>
       <div className="flex flex-row py-10">
         <div className="basis-1/2 px-5 mt-2">
-          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }}></div>
+          {/* <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }}></div> */}
           {/* <p className='text-content'>{desc}</p> */}
           <button className="mt-5 btn-contact">
             Connect me!
