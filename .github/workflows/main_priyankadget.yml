@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: npm install, build, and test strapi
         working-directory: ./api
         run: |
           npm install
@@ -36,7 +36,7 @@ jobs:
       #     name: strapi-app
       #     path: .
           
-      - name: npm install, build, and test
+      - name: npm install, build, and test next js
         working-directory: ./ui
         run: |
           npm install
@@ -73,7 +73,7 @@ jobs:
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: ./api
+          package: $(System.DefaultWorkingDirectory)/api.war
           
       # - name: Download artifact from build job strapi
       #   uses: actions/download-artifact@v2
@@ -89,4 +89,4 @@ jobs:
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: ./ui
+          package: $(System.DefaultWorkingDirectory)/ui.war
