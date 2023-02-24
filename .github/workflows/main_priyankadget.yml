@@ -30,11 +30,11 @@ jobs:
 #       - name: Archive files strapi
 #         run: tar -czvf strapi-build.tar.gz ./api
           
-      # - name: Upload artifact for deployment job strapi
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: strapi-app
-      #     path: .
+      - name: Upload artifact for deployment job strapi
+        uses: actions/upload-artifact@v2
+        with:
+          name: strapi-app
+          path: ./api
           
       - name: npm install, build, and test next js
         working-directory: ./ui
@@ -45,11 +45,11 @@ jobs:
 #       - name: Archive files next
 #         run: tar -czvf next-build.tar.gz ./ui
         
-      # - name: Upload artifact for deployment job next
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: next-app
-      #     path: .
+      - name: Upload artifact for deployment job next
+        uses: actions/upload-artifact@v2
+        with:
+          name: next-app
+          path: ./ui
 
   deploy:
     runs-on: ubuntu-latest
@@ -59,10 +59,10 @@ jobs:
       url: ${{ steps.deploy-to-webapp-strapi.outputs.webapp-url }}
 
     steps:
-      # - name: Download artifact from build job strapi
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: strapi-app
+      - name: Download artifact from build job strapi
+        uses: actions/download-artifact@v2
+        with:
+          name: strapi-app
       
 #       - name: Extract artifact strapi
 #         run: tar -xzvf strapi.tar.gz -C .
@@ -73,12 +73,12 @@ jobs:
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: $(System.DefaultWorkingDirectory)/api.war
+          package: ./api
           
-      # - name: Download artifact from build job strapi
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: next-app
+      - name: Download artifact from build job strapi
+        uses: actions/download-artifact@v2
+        with:
+          name: next-app
           
 #       - name: Extract artifact next
 #         run: tar -xzvf next.tar.gz -C .
@@ -89,4 +89,4 @@ jobs:
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: $(System.DefaultWorkingDirectory)/ui.war
+          package: ./ui
