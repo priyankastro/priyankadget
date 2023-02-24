@@ -65,7 +65,7 @@ jobs:
           name: strapi-app
       
       - name: Extract artifact strapi
-        run: tar -xzvf strapi.tar.gz -C ./api
+        run: tar -xzvf strapi-build.tar.gz -C ./api
 
       - name: 'Deploy to Azure Web App - Strapi'
         id: deploy-to-webapp-strapi
@@ -81,7 +81,7 @@ jobs:
           name: next-app
           
       - name: Extract artifact next
-        run: tar -xzvf next.tar.gz -C ./ui
+        run: tar -xzvf next-build.tar.gz -C ./ui
 
       - name: 'Deploy to Azure Web App - Next'
         id: deploy-to-webapp-next
