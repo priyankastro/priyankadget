@@ -28,13 +28,13 @@ jobs:
           npm run build --if-present
       
       - name: Archive files strapi
-        run: zip strapi-build.zip ./api
+        run: tar -czvf strapi-build.tar.gz ./api
           
       - name: Upload artifact for deployment job strapi
         uses: actions/upload-artifact@v2
         with:
           name: strapi-app
-          path: strapi-build.zip
+          path: strapi-build.tar.gz
           
       - name: npm install, build, and test next js
         working-directory: ./ui
@@ -43,13 +43,13 @@ jobs:
           npm run build --if-present
       
       - name: Archive files next
-        run: zip next-build.zip ./ui
+        run: tar -czvf next-build.tar.gz ./ui
         
       - name: Upload artifact for deployment job next
         uses: actions/upload-artifact@v2
         with:
           name: next-app
-          path: next-build.zip
+          path: next-build.tar.gz
 
   deploy:
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
           name: strapi-app
       
       - name: Extract artifact strapi
-        run: unzip strapi-build.zip
+        run: tar -xzvf strapi-build.tar.gz -C .
 
       - name: 'Deploy to Azure Web App - Strapi'
         id: deploy-to-webapp-strapi
@@ -81,7 +81,7 @@ jobs:
           name: next-app
           
       - name: Extract artifact next
-        run: unzip next-build.zip
+        run: tar -xzvf next-build.tar.gz -C .
 
       - name: 'Deploy to Azure Web App - Next'
         id: deploy-to-webapp-next
