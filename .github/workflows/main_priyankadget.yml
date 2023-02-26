@@ -26,21 +26,30 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-
+      
+      - name: Archive files strapi
+        run: tar -czvf strapi-build.tar.gz ./api
+          
+      - name: Upload artifact for deployment job strapi
+        uses: actions/upload-artifact@v2
+        with:
+          name: strapi-app
+          path: strapi-build.tar.gz
+          
       - name: npm install, build, and test next js
         working-directory: ./ui
         run: |
           npm install
           npm run build --if-present
       
-      - name: Archive files
-        run: tar -czvf project.tar.gz .
-          
-      - name: Upload artifact for deployment job
+      - name: Archive files next
+        run: tar -czvf next-build.tar.gz ./ui
+        
+      - name: Upload artifact for deployment job next
         uses: actions/upload-artifact@v2
         with:
-          name: my-app
-          path: project.tar.gz
+          name: next-app
+          path: next-build.tar.gz
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,34 +59,35 @@ jobs:
       url: ${{ steps.deploy-to-webapp-strapi.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact from build job strapi
         uses: actions/download-artifact@v2
         with:
-          name: my-app
+          name: strapi-app
       
-      - name: Extract artifact
-        run: tar -xzvf project.tar.gz -C .
+      - name: Extract artifact strapi
+        run: tar -xzvf strapi-build.tar.gz -C .
 
-      - name: 'Deploy to Azure Web App'
+      - name: 'Deploy to Azure Web App - Strapi'
         id: deploy-to-webapp-strapi
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: .
+          package: ./api
+          app_path: api
           
-      # - name: Download artifact from build job strapi
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: next-app
+      - name: Download artifact from build job strapi
+        uses: actions/download-artifact@v2
+        with:
+          name: next-app
           
-      # - name: Extract artifact next
-      #   run: tar -xzvf next-build.tar.gz -C .
+      - name: Extract artifact next
+        run: tar -xzvf next-build.tar.gz -C ./ui
 
-      # - name: 'Deploy to Azure Web App - Next'
-      #   id: deploy-to-webapp-next
-      #   uses: azure/webapps-deploy@v2
-      #   with:
-      #     app-name: 'priyankadget'
-      #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-      #     package: ./ui
+      - name: 'Deploy to Azure Web App - Next'
+        id: deploy-to-webapp-next
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'priyankadget'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
+          package: ./ui
