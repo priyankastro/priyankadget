@@ -73,7 +73,7 @@ jobs:
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: strapi-build.tar.gz
+          package: strapi-build.zip
           app_path: api
           
       - name: Download artifact from build job strapi
@@ -90,4 +90,4 @@ jobs:
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: next-build.tar.gz
+          package: next-build.zip
