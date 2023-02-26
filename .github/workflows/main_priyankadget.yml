@@ -64,8 +64,16 @@ jobs:
         with:
           name: strapi-app
       
-      # - name: Extract artifact strapi
-      #   run: tar -xzvf strapi-build.tar.gz -C .
+      - name: Extract artifact strapi
+        run: tar -xzvf strapi-build.tar.gz -C .
+
+      - name: Download artifact from build job strapi
+        uses: actions/download-artifact@v2
+        with:
+          name: next-app
+
+      - name: Extract artifact next
+        run: tar -xzvf next-build.tar.gz -C .
 
       - name: 'Deploy to Azure Web App - Strapi'
         id: deploy-to-webapp-strapi
@@ -73,21 +81,20 @@ jobs:
         with:
           app-name: 'priyankadget'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: strapi-build.zip
-          app_path: api
+          package: .
           
-      - name: Download artifact from build job strapi
-        uses: actions/download-artifact@v2
-        with:
-          name: next-app
+      # - name: Download artifact from build job strapi
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: next-app
           
       # - name: Extract artifact next
-      #   run: tar -xzvf next-build.tar.gz -C ./ui
+      #   run: tar -xzvf next-build.tar.gz -C .
 
-      - name: 'Deploy to Azure Web App - Next'
-        id: deploy-to-webapp-next
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'priyankadget'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: next-build.zip
+      # - name: 'Deploy to Azure Web App - Next'
+      #   id: deploy-to-webapp-next
+      #   uses: azure/webapps-deploy@v2
+      #   with:
+      #     app-name: 'priyankadget'
+      #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
+      #     package: ./ui
