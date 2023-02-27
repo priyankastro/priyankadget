@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-27T21:21:44.828Z"
+    "x-generation-date": "2023-02-27T21:55:05.285Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -28,7 +28,7 @@
   },
   "servers": [
     {
-      "url": "https://priyankadget-api.vercel.app/api",
+      "url": "http://localhost:1337/api",
       "description": "Development server"
     }
   ],
@@ -19122,7 +19122,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -19199,6 +19199,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/about"
@@ -19515,7 +19525,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -19592,6 +19602,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/contact-forms"
@@ -20010,7 +20030,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -20087,6 +20107,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/home"
@@ -20403,7 +20433,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -20480,6 +20510,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/skills"
@@ -20990,7 +21030,7 @@
           {
             "name": "pagination[withCount]",
             "in": "query",
-            "description": "Retun page/pageSize (default: true)",
+            "description": "Return page/pageSize (default: true)",
             "deprecated": false,
             "required": false,
             "schema": {
@@ -21067,6 +21107,16 @@
               "type": "object"
             },
             "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "operationId": "get/upload/files"
