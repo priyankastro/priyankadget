@@ -1,7 +1,7 @@
 export default ({ env }) => ({
-  // host: env('HOST', '0.0.0.0'),
-  // port: env.int('PORT', 1337),
-  url: 'https://priyankadget-api.vercel.app/',
+  host: env('HOST', '0.0.0.0'),
+  port: env.int('PORT', 1337),
+  // url: 'https://priyankadget-api.vercel.app/',
   app: {
     keys: env.array('APP_KEYS'),
   },
