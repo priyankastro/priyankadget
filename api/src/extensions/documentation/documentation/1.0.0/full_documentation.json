@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-23T11:44:15.567Z"
+    "x-generation-date": "2023-02-27T21:21:44.828Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -28,7 +28,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1337/api",
+      "url": "https://priyankadget-api.vercel.app/api",
       "description": "Development server"
     }
   ],
