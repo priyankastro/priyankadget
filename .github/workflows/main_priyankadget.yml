@@ -56,6 +56,6 @@ jobs:
         id: deploy-to-webapp-strapi
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'priyankadget'
+          app-name: 'priyankadget-api'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
           package: api
