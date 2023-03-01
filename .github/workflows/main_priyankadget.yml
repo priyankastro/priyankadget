@@ -58,4 +58,4 @@ jobs:
         with:
           app-name: 'priyankadget-api'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8573C8142C14E3CBBE4464F6975B414 }}
-          package: api/dist
+          package: api
