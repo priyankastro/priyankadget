@@ -42,7 +42,8 @@ export default function Home({ data }: any) {
           </button>
         </div>
         <div className="basis-1/2">
-          <video className='m-auto' width={'60%'} controls src='videos/intro.mp4'></video>
+          {/* <video className='m-auto' width={'60%'} controls src='videos/intro.mp4'></video> */}
+          <h1>test2</h1>
         </div>
       </div>
     </div>
