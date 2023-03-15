@@ -4,7 +4,7 @@ import styles from './navbar.module.css'
 const MENU_LIST = [
   { text: 'About', href: '/about', icon: 'svg/user.svg' },
   { text: 'Experience', href: '/experience', icon: 'svg/work.svg' },
-  { text: 'Skill', href: '/skill', icon: 'svg/pencil.svg' },
+  { text: 'Skills', href: '/skill', icon: 'svg/pencil.svg' },
   { text: 'Connect', href: '/connect', icon: 'svg/connect.svg' },
 ];
 const SOCIAL_LIST = [

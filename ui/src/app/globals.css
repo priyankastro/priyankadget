@@ -159,10 +159,6 @@ button {
   color: var(--purple-bright);
 }
 
-main {
-  padding: 0 0 0 128px;
-}
-
 p {
   margin-bottom: 1rem;
 }
