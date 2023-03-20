@@ -36,7 +36,9 @@ export default function Home({ data }: any) {
       <div className="flex flex-row py-10">
         <div className="basis-1/2 px-5 mt-2">
           {/* <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }}></div> */}
-          {/* <p className='text-content'>{desc}</p> */}
+          <p className='text-content'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum nunc porttitor tortor sagittis rutrum. Sed molestie eget eros et ornare. Ut eget nunc id ante commodo egestas sed nec elit. Proin auctor iaculis ex sit amet sollicitudin
+          </p>
           <button className="mt-5 btn-contact">
             Connect me!
           </button>

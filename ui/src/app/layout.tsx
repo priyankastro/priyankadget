@@ -15,13 +15,15 @@ export default function RootLayout({
       <head />
 
       <body>
-        <Navbar />
-        <main className='relative h-screen z-10'>
-          <div className='px-16 py-10'>
-            {children}
-          </div>
-          <div className='skewpart'></div>
-        </main>
+        <div className='relative md:flex min-h-screen'>
+          <Navbar />
+          <main className='relative z-10 w-full'>
+            <div className='px-16 py-10'>
+              {children}
+            </div>
+            <div className='skewpart'></div>
+          </main>
+        </div>
       </body>
     </html>
   )
