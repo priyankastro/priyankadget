@@ -210,3 +210,13 @@ p {
   align-items: flex-start;
   min-height: 100vh;
 }
+.menu-btn-sm {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 11;
+  background: var(--purple-light);
+}
+.menu-btn-sm:focus {
+  outline: 2px solid;
+}

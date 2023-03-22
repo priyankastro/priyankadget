@@ -15,10 +15,10 @@ export default function RootLayout({
       <head />
 
       <body>
-        <div className='relative md:flex min-h-screen'>
+        <div className='relative block md:flex min-h-screen'>
           <Navbar />
           <main className='relative z-10 w-full'>
-            <div className='content-body p-40'>
+            <div className='content-body p-10 md:p-20 xl:p-40'>
               {children}
             </div>
             <div className='skewpart'></div>
