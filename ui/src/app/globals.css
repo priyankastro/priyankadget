@@ -110,6 +110,14 @@ a {
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "AveriaSerifLibre-Bold";
+  src: url("../../public/fonts/AveriaSerifLibre-Bold.ttf");
+}
+@font-face {
+  font-family: "Inter-Variable";
+  src: url("../../public/fonts/Inter-VariableFont_slnt\,wght.ttf");
+}
 :root {
   --text-light: #ccd6f6;
   --text-gray: #9ea8cb;
@@ -117,24 +125,14 @@ a {
   --purple-bright: rgb(119 126 252);
   --purple-light: rgba(75, 82, 214, 0.5);
   --text-highlight: rgba(183, 120, 255, 0.89);
-  --font-biryani-regular: "Biryani-Regular", sans-serif;
+  --font-inter-regular: "Inter-Variable", sans-serif;
   --font-averiaseriflibre-bold: "AveriaSerifLibre-Bold";
 }
-
-@font-face {
-  font-family: "Biryani-Regular";
-  src: url("../../public/fonts/Biryani-Regular.ttf");
-}
-@font-face {
-  font-family: "AveriaSerifLibre-Bold";
-  src: url("../../public/fonts/AveriaSerifLibre-Bold.ttf");
-}
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--font-biryani-regular);
+  font-family: var(--font-inter-regular);
   color: var(--text-gray);
   background: #07172f;
   -webkit-font-smoothing: antialiased;
