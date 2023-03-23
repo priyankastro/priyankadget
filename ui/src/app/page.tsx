@@ -22,11 +22,12 @@ export default function Home({ data }: any) {
   }, [])
   return (
     <div>
-      <div className="flex py-5">
-        <div className="flex-none mx-1 px-5">
+      <div className="grid grid-cols-12 gap-1 md:flex md:flex-row md:py-5">
+        {/* <div className="flex-none mx-1 px-5"> */}
+        <div className="col-span-12 md:flex-none">
           <Image className={`position-absolute ${styles.img_hi}`} src={'/images/img_hi.png'} alt={'hi'} width={250} height={250}></Image>
         </div>
-        <div className="grow mx-1">
+        <div className="col-span-12 md:grow mx-1">
           <h3 className='font-bold tracking-widest'>my name is</h3>
           <h1 className='heading-xl'>Priyanka Das</h1>
           <h2 className='font-bold text-3xl py-3'>Engineer + Photographer</h2>
