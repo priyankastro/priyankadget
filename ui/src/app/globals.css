@@ -180,11 +180,11 @@ p {
 }
 
 .heading-md {
-  font-size: clamp(20px, 8vw, 30px);
+  font-size: clamp(20px, 5vw, 30px);
 }
 
 .heading-sm {
-  font-size: clamp(18px, 8vw, 25px);
+  font-size: clamp(15px, 5vw, 25px);
 }
 
 .btn-contact {
