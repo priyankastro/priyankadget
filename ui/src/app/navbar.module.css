@@ -24,10 +24,12 @@
   display: flex;
   justify-content: center;
   padding: 10px;
+  transition: background-color .2s;
 }
 
 .menu_nav a:hover {
   background-color: var(--purple-light);
+  transition: background-color .2s;
 }
 
 .navbar img {

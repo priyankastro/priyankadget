@@ -128,6 +128,9 @@ a {
   --font-inter-regular: "Inter-Variable", sans-serif;
   --font-averiaseriflibre-bold: "AveriaSerifLibre-Bold";
 }
+html{
+  font-size: 18px;
+}
 html,
 body {
   padding: 0;
@@ -168,12 +171,20 @@ p {
 }
 
 .heading-xl {
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(45px, 12vw, 80px);
   margin: 0;
 }
 
+.heading-lg {
+  font-size: clamp(20px, 10vw, 40px);
+}
+
+.heading-md {
+  font-size: clamp(20px, 8vw, 30px);
+}
+
 .heading-sm {
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(18px, 8vw, 25px);
 }
 
 .btn-contact {

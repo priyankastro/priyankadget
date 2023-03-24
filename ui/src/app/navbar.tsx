@@ -19,7 +19,6 @@ const SOCIAL_LIST = [
 
 const Navbar = ({ }) => {
   const [collapse, setCollapse] = useState(false);
-  console.log(collapse)
   return (
     <>
       <div className={clsx({
