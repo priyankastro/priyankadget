@@ -123,13 +123,15 @@ a {
   --text-gray: #9ea8cb;
   --purple-medium: rgba(95, 101, 216, 0.7);
   --purple-bright: rgb(119 126 252);
+  --pastel-yellow: rgb(235 242 142);
   --purple-light: rgba(75, 82, 214, 0.5);
   --text-highlight: rgba(183, 120, 255, 0.89);
+  --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#fda399 50%,#76d880 70%,#ebf38b 90%,#adfbda 100%);
   --font-inter-regular: "Inter-Variable", sans-serif;
   --font-averiaseriflibre-bold: "AveriaSerifLibre-Bold";
 }
 html{
-  font-size: 18px;
+  font-size: 16px;
 }
 html,
 body {
@@ -146,7 +148,10 @@ body {
 }
 
 h1 {
-  color: var(--text-light);
+  /* color: var(--text-light); */
+  background-image: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: var(--font-averiaseriflibre-bold);
   font-weight: 700;
 }
@@ -170,17 +175,20 @@ p {
   width: 100%;
 }
 
+.text-purple-bright {
+ color: var(--purple-bright);
+}
+
 .heading-xl {
   font-size: clamp(45px, 12vw, 80px);
-  margin: 0;
 }
 
 .heading-lg {
-  font-size: clamp(20px, 10vw, 40px);
+  font-size: clamp(20px, 6vw, 30px);
 }
 
 .heading-md {
-  font-size: clamp(20px, 5vw, 30px);
+  font-size: clamp(10px, 5vw, 25px);
 }
 
 .heading-sm {
@@ -220,7 +228,7 @@ p {
   min-height: 100vh;
 }
 .menu-btn-sm {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 11;
