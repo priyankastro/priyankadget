@@ -126,7 +126,7 @@ a {
   --pastel-yellow: rgb(235 242 142);
   --purple-light: rgba(75, 82, 214, 0.5);
   --text-highlight: rgba(183, 120, 255, 0.89);
-  --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#fda399 50%,#76d880 70%,#ebf38b 90%,#adfbda 100%);
+  --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#76d880 70%,#adfbda 100%);
   --font-inter-regular: "Inter-Variable", sans-serif;
   --font-averiaseriflibre-bold: "AveriaSerifLibre-Bold";
 }
@@ -236,4 +236,15 @@ p {
 }
 .menu-btn-sm:focus {
   outline: 2px solid;
+}
+
+@media screen and (min-width: 1024px) {
+  .section-heading::before {
+    content: "";
+    position: absolute;
+    border-top: 5rem solid transparent;
+    border-left: 5rem solid var(--purple-light);
+    border-bottom: 5rem solid transparent;
+    left: 0;
+  }
 }
