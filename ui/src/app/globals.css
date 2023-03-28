@@ -126,7 +126,9 @@ a {
   --pastel-yellow: rgb(235 242 142);
   --purple-light: rgba(75, 82, 214, 0.5);
   --text-highlight: rgba(183, 120, 255, 0.89);
-  --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#76d880 70%,#adfbda 100%);
+  /* --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#76d880 70%,#adfbda 100%); */
+  /* --rainbow-gradient: linear-gradient(-90deg,#35c3ff 30%,#76d8c6 70%,#adfbda 100%); */
+  --rainbow-gradient: linear-gradient(-90deg,#35c3ff 30%,#76d8c6 70%,#7efac6 100%);
   --font-inter-regular: "Inter-Variable", sans-serif;
   --font-averiaseriflibre-bold: "AveriaSerifLibre-Bold";
 }
@@ -149,9 +151,6 @@ body {
 
 h1 {
   /* color: var(--text-light); */
-  background-image: var(--rainbow-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-family: var(--font-averiaseriflibre-bold);
   font-weight: 700;
 }
@@ -177,6 +176,12 @@ p {
 
 .text-purple-bright {
  color: var(--purple-bright);
+}
+
+.multicolored-text {
+  background-image: var(--rainbow-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .heading-xl {

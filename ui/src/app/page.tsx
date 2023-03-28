@@ -29,7 +29,7 @@ export default function Home({ data }: any) {
         </div>
         <div className="md:grow mx-0 md:mx-1 mt-5 md:mt-0">
           <h3 className='font-bold tracking-widest'>my name is</h3>
-          <h1 className='heading-xl'>Priyanka Das</h1>
+          <h1 className='multicolored-text heading-xl'>Priyanka Das</h1>
           <h2 className='font-bold heading-lg py-3'>Engineer + Photographer</h2>
           <h3 className='hidden lg:block text-md py-3'>(A generic combo commonly found among engineers worldwide)</h3>
         </div>
@@ -40,7 +40,7 @@ export default function Home({ data }: any) {
           {/* <p className='text-content'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum nunc porttitor tortor sagittis rutrum. Sed molestie eget eros et ornare. Ut eget nunc id ante commodo egestas sed nec elit. Proin auctor iaculis ex sit amet sollicitudin
           </p> */}
-          <h2 className={`${styles.desc} font-bold heading-md`}><span>Front-End Developer</span> / <span>Sitefinity Expert</span> / <span>Hobyist Photographer</span></h2>
+          <h2 className={`${styles.desc} font-bold heading-md`}><span>Front-End Developer</span> / <span>Sitefinity Expert</span> / <span>Hobbyist Photographer</span></h2>
           <button className="mt-10 btn-contact">
             Contact me!
           </button>
