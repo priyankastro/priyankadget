@@ -244,12 +244,12 @@ p {
 }
 
 @media screen and (min-width: 1024px) {
-  .section-heading::before {
+  /* .section-heading::before {
     content: "";
     position: absolute;
-    border-top: 5rem solid transparent;
-    border-left: 5rem solid var(--purple-light);
-    border-bottom: 5rem solid transparent;
+    border-top: 64px solid transparent;
+    border-left: 64px solid var(--purple-light);
+    border-bottom: 64px solid transparent;
     left: 0;
-  }
+  } */
 }

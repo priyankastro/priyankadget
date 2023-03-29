@@ -11,7 +11,7 @@ import Image from 'next/image'
 //     };
 // }
 
-const About = ({ data }: any) => {
+const Experience = ({ data }: any) => {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2">
             <div>
@@ -25,4 +25,4 @@ const About = ({ data }: any) => {
         </div>
     )
 }
-export default About;
+export default Experience;
