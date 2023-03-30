@@ -58,23 +58,28 @@
   position: absolute;
   z-index: 11;
   background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  transition: all .2s ease-in;
 }
 
 @media screen and (max-width: 768px) {
   .navbar {
-    display: none;
     position: absolute;
     z-index: 11;
-    overflow: hidden;
+    overflow: auto;
+    left: -128px;
+    transition: .2s;
   }
 }
 
 @media screen and (min-width: 768px) {
   .backdrop  {
     display: none;
+    transition: all .2s ease-out;
   }
 }
 
 .block {
-  display: block !important;
+  transition: .2s;
+  left: 0;
 }
