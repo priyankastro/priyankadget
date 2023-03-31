@@ -211,7 +211,7 @@ p {
   border: 2px solid transparent;
 }
 .skewpart {
-  z-index: -1;
+  z-index: -7;
   position: fixed;
   bottom: 0;
   right: 0;

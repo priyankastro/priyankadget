@@ -10,7 +10,7 @@ import { toggle } from './Reducers/globalSlice'
 const MENU_LIST = [
   { text: 'About', href: '/about', icon: 'svg/user.svg' },
   { text: 'Experience', href: '/experience', icon: 'svg/work.svg' },
-  { text: 'Skills', href: '/skills', icon: 'svg/pencil.svg' },
+  { text: 'Portfolio', href: '/portfolio', icon: 'svg/pencil.svg' },
   { text: 'Connect', href: '/connect', icon: 'svg/connect.svg' },
 ];
 const SOCIAL_LIST = [

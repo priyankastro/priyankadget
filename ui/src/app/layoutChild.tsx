@@ -11,7 +11,7 @@ const LayoutChild = (props: any) => {
             {/* {console.log(collapse)} */}
             <Navbar />
             <main className={`relative z-10 w-full ${clsx({
-                ['h-screen']: collapse === true
+                ['h-screen overflow-auto']: collapse === true
             })
                 }`}>
                 <div className='content-body p-8 lg:p-20 md:p-10 xl:p-28 2xl:p-40'>
