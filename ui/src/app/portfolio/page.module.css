@@ -7,12 +7,12 @@
 .imageEngg {
   z-index: 12;
   width: 90%;
-  transition: 0.8s;
+  transition: 0.5s;
 }
 .imagePhoto {
   z-index: 12;
   width: 70%;
-  transition: 0.8s;
+  transition: 0.5s;
 }
 .box {
   cursor: pointer;
@@ -26,7 +26,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.8s;
+  transition: 0.5s;
   color: black;
   font-weight: bold;
 }
@@ -36,7 +36,7 @@
   border-radius: 30px;
   width: 100%;
   height: 200px;
-  background-color: #5581e1;
+  background-color: var(--purple-medium);
 }
 .headingBgPhoto {
   z-index: -2;
@@ -45,16 +45,16 @@
   border-radius: 30px;
   width: 100%;
   height: 200px;
-  background-color: #5581e1;
+  background-color: var(--purple-medium);
 }
 .box:hover h2 {
   top: 45px;
-  transition: 0.8s 0.2s;
+  transition: 0.5s 0.2s;
 }
 .box:hover .imgHeadingPhoto {
   top: -13px !important;
 }
 .box:hover img {
   transform: translateY(30px);
-  transition: 0.8s 0.2s;
+  transition: 0.5s 0.2s;
 }
