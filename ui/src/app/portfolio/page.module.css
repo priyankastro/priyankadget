@@ -4,15 +4,11 @@
 .link:hover {
   text-decoration: underline;
 }
-.imageEngg {
+.image {
   z-index: 12;
   width: 90%;
-  transition: 0.5s;
-}
-.imagePhoto {
-  z-index: 12;
-  width: 70%;
-  transition: 0.5s;
+  transition: 0.4s;
+  margin: auto;
 }
 .box {
   cursor: pointer;
@@ -21,40 +17,41 @@
 .imgHeading {
   z-index: -1;
   position: absolute;
-  font-size: 30px;
+  font-size: 35px;
   font-family: sans-serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.5s;
+  transition: 0.4s;
   color: black;
   font-weight: bold;
 }
-.headingBgEngg {
+.headingBg {
   z-index: -2;
   position: absolute;
   border-radius: 30px;
   width: 100%;
-  height: 200px;
-  background-color: var(--purple-medium);
-}
-.headingBgPhoto {
-  z-index: -2;
-  position: absolute;
-  top: -55px;
-  border-radius: 30px;
-  width: 100%;
-  height: 200px;
+  height: 50%;
   background-color: var(--purple-medium);
 }
 .box:hover h2 {
   top: 45px;
-  transition: 0.5s 0.2s;
-}
-.box:hover .imgHeadingPhoto {
-  top: -13px !important;
+  transition: 0.4s 0.2s;
 }
 .box:hover img {
   transform: translateY(30px);
-  transition: 0.5s 0.2s;
+  transition: 0.4s 0.2s;
+}
+.box:hover .headingBg {
+  background-color: var(--purple-dark);
+  transition: 0.4s;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 12) {
+  /* .headingBg {
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 500px;
+      } */
 }

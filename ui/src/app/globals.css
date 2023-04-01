@@ -121,6 +121,7 @@ a {
 :root {
   --text-light: #ccd6f6;
   --text-gray: #9ea8cb;
+  --purple-dark: rgba(95, 101, 216);
   --purple-medium: rgba(95, 101, 216, 0.7);
   --purple-bright: rgb(119 126 252);
   --pastel-yellow: rgb(235 242 142);

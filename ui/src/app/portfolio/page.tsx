@@ -15,16 +15,16 @@ const Portfolio = ({ data }: any) => {
     return (
         <div className="">
             <h1 className='multicolored-text heading-xl mb-16 section-heading'>My Portfolio</h1>
-            <div className="grid gap-16 grid-cols-1 lg:grid-cols-2">
+            <div className="grid gap-24 grid-cols-1 lg:grid-cols-2">
                 <div className={`${styles.box} m-auto mb-16 lg:mb-auto`}>
                     <h2 className={styles.imgHeading}>Engineering</h2>
-                    <div className={styles.headingBgEngg}></div>
-                    <img className={`${styles.image} ${styles.imageEngg} m-auto`} src={"/images/engineering.png"} alt={"Engineering"} />
+                    <div className={styles.headingBg}></div>
+                    <img className={styles.image} src={"/images/engineering.png"} alt={"Engineering"} />
                 </div>
-                <div className={`${styles.box} m-auto mb-16 lg:mb-auto`}>
-                    <h2 className={`${styles.imgHeading} ${styles.imgHeadingPhoto}`}>Photography</h2>
-                    <div className={styles.headingBgPhoto}></div>
-                    <img className={`${styles.image} ${styles.imagePhoto} m-auto`} src={"/images/photography.png"} alt={"Photography"} />
+                <div className={`${styles.box} m-auto mb-14 lg:mb-auto`}>
+                    <h2 className={styles.imgHeading}>Photography</h2>
+                    <div className={styles.headingBg}></div>
+                    <img className={styles.image} src={"/images/photography.png"} alt={"Photography"} />
                 </div>
             </div>
         </div>
