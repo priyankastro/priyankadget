@@ -46,12 +46,17 @@
   background-color: var(--purple-dark);
   transition: 0.4s;
 }
-
-@media screen and (min-width: 1280px) and (max-width: 12) {
-  /* .headingBg {
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 500px;
-      } */
+@media (max-width: 1024px) {
+  .box h2 {
+    top: 45px;
+    transition: 0.4s 0.2s;
+  }
+  .box img {
+    transform: translateY(30px);
+    transition: 0.4s 0.2s;
+  }
+  .box .headingBg {
+    background-color: var(--purple-dark);
+    transition: 0.4s;
+  }
 }

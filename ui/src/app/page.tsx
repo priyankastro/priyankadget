@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from './page.module.css'
 import { getPublicUrlFetch } from "../../lib/interceptor";
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 // import DOMPurify from 'isomorphic-dompurify';
 
 // const getData = async () => {
@@ -40,10 +41,9 @@ export default function Home({ data }: any) {
           {/* <p className='text-content'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum nunc porttitor tortor sagittis rutrum. Sed molestie eget eros et ornare. Ut eget nunc id ante commodo egestas sed nec elit. Proin auctor iaculis ex sit amet sollicitudin
           </p> */}
-          <h2 className={`${styles.desc} font-bold heading-md`}><span>Front-End Developer</span> / <span>Sitefinity Expert</span> / <span>Hobbyist Photographer</span></h2>
-          <button className="mt-10 btn-contact">
-            Contact me!
-          </button>
+          <h2 className={`${styles.desc} font-bold heading-md mb-5`}><span>Front-End Developer</span> / <span>Sitefinity Expert</span> / <span>Hobbyist Photographer</span></h2>
+          <br />
+          <Link className="btn-contact" href={'/connect'}>Contact me!</Link>
         </div>
         {/* <div className="basis-1/2">
           <video className='m-auto' width={'60%'} controls src='videos/intro.mp4'></video>
