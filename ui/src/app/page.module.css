@@ -3,7 +3,8 @@
   transition: all 0.3s ease-in-out;
 }
 .desc span:hover {
-  background: black;
+  color: rgb(26, 26, 26);
+  background: var(--purple-bright);
   border-radius: 20px;
   padding: 0 20px;
   transition: all 0.3s ease-in-out;
