@@ -1,4 +1,3 @@
-'use client'
 import Navbar from "./navbar";
 import { RootState } from './store'
 import { useSelector } from 'react-redux'

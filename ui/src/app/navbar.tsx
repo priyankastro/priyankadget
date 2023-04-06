@@ -8,10 +8,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { toggle } from './Reducers/globalSlice'
 
 const MENU_LIST = [
-  { text: 'About', href: '/about', icon: 'svg/user.svg' },
-  { text: 'Experience', href: '/experience', icon: 'svg/work.svg' },
-  { text: 'Portfolio', href: '/portfolio', icon: 'svg/pencil.svg' },
-  { text: 'Connect', href: '/connect', icon: 'svg/connect.svg' },
+  { text: 'About', href: 'about', icon: 'svg/user.svg' },
+  { text: 'Experience', href: 'experience', icon: 'svg/work.svg' },
+  { text: 'Portfolio', href: 'portfolio', icon: 'svg/pencil.svg' },
+  { text: 'Connect', href: 'connect', icon: 'svg/connect.svg' },
 ];
 const SOCIAL_LIST = [
   { href: 'https://www.linkedin.com/in/priyanka-das-542995180/', icon: 'svg/linkedin.svg' },
