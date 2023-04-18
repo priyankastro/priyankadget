@@ -25,6 +25,7 @@
   transition: 0.4s;
   color: black;
   font-weight: bold;
+  opacity: 0;
 }
 .headingBg {
   z-index: -2;
@@ -36,6 +37,7 @@
 }
 .box:hover h2 {
   top: 45px;
+  opacity: 1;
   transition: 0.4s 0.2s;
 }
 .box:hover img {
