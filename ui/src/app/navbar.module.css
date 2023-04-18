@@ -27,7 +27,7 @@
   transition: background-color .2s;
 }
 
-.menu_nav a:hover {
+.menu_nav a:hover, .menu_nav a.active {
   background-color: var(--purple-light);
   transition: background-color .2s;
 }

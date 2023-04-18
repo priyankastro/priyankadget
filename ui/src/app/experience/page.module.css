@@ -1,7 +1,27 @@
 .link {
-    color: var(--pastel-yellow);
+  color: var(--pastel-yellow);
 }
 
 .link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.content {
+  background-color: var(--purple-light);
+}
+
+.btn {
+  padding: 15px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  text-align: right;
+  border-right: 1px solid var(--purple-bright-transparent);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--purple-light);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }

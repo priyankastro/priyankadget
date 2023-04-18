@@ -6,6 +6,7 @@ import styles from './navbar.module.css'
 import type { RootState } from './store'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggle } from './Reducers/globalSlice'
+import { useSelectedLayoutSegment } from 'next/navigation'
 
 const MENU_LIST = [
   { text: 'About', href: 'about', icon: 'svg/user.svg' },
@@ -21,9 +22,9 @@ const SOCIAL_LIST = [
 ];
 
 const Navbar = ({ }) => {
-  // const [collapse, setCollapse] = useState(false);
   const collapse = useSelector((state: RootState) => state.global.openNav)
   const dispatch = useDispatch()
+  const segment = useSelectedLayoutSegment();
   return (
     <>
       <div className={clsx({
@@ -41,7 +42,7 @@ const Navbar = ({ }) => {
         <Link className={styles.menu_top} href={'/'}>LOGO</Link>
         <nav className={styles.menu_nav}>
           {MENU_LIST.map((menu, idx) => (
-            <Link href={menu.href} key={idx}>
+            <Link href={menu.href} key={idx} className={`${clsx({[styles.active]: segment === menu.text.toLowerCase()})}`}>
               <img src={menu.icon} />
               {menu.text}
             </Link>

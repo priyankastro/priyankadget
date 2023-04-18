@@ -124,6 +124,7 @@ a {
   --purple-dark: rgba(95, 101, 216);
   --purple-medium: rgba(95, 101, 216, 0.7);
   --purple-bright: rgb(119 126 252);
+  --purple-bright-transparent: rgb(119 126 252/0.7);
   --pastel-yellow: rgb(235 242 142);
   --purple-light: rgba(75, 82, 214, 0.5);
   --text-highlight: rgba(183, 120, 255, 0.89);
