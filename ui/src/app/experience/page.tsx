@@ -30,8 +30,8 @@ const Experience = () => {
         <div className="w-full">
             <h1 className='multicolored-text heading-xl mb-9 section-heading'>Skills &amp; Experience</h1>
             <div className="grid grid-cols-1 lg:grid-cols-5">
-                <div className="flex col-span-3 gap-x-14">
-                    <div className="flex flex-col">
+                <div className="lg:flex col-span-1 lg:col-span-3 gap-x-14">
+                    <div className="flex flex-row lg:flex-col overflow-auto">
                         {experienceList.map((exp: any, key: any) => (
                             <button className={`${styles.btn} ${clsx({ [styles.active]: activeCompany === exp.company })}`} key={key} onClick={() => { getExpDeatils(exp.company) }}>{exp.company}</button>
                         ))}
