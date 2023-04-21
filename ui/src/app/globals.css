@@ -157,6 +157,15 @@ h1 {
   font-weight: 700;
 }
 
+h2 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -226,7 +235,7 @@ p {
   left: 0;
   width: 0;
   height: 100%;
-  color: #07172f;
+  color: #0a2143;
   background-image: var(--rainbow-gradient);
   opacity: 0.8;
   transition: all .3s ease-in-out;
@@ -281,4 +290,44 @@ p {
     border-bottom: 64px solid transparent;
     left: 0;
   } */
+}
+
+.desc-list::before{
+  content: url(../../public/svg/triangle.svg);
+  position: absolute;
+  /* bottom: 0; */
+  padding-right: 0.5rem;
+}
+
+/* body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #07172f6c;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 82, 214, 0.712);
+  border-radius: 20px;
+} */
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 82, 214, 0.712);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #07172f6c;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 82, 214, 0.712);
+  border-radius: 20px;
 }

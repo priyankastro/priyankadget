@@ -20,8 +20,18 @@
   transition: all 0.2s ease-in-out;
 }
 
-.btn:hover {
+.btn:hover, .active {
+  position: relative;
   background-color: var(--purple-light);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -38%;
+  width: 38%;
+  border-top: 1px solid var(--purple-bright-transparent);
 }
