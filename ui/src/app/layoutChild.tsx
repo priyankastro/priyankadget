@@ -12,7 +12,7 @@ const LayoutChild = (props: any) => {
                 ['h-screen overflow-auto']: collapse === true
             })
                 }`}>
-                <div className='content-body p-8 lg:p-20 md:p-10 xl:p-24 2xl:p-40'>
+                <div className="ml-0 md:ml-[128px]">
                     {props.item}
                 </div>
                 <div className='skewpart'></div>

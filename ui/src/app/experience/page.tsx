@@ -28,7 +28,7 @@ const Experience = () => {
         setActiveCompany(detail.company);
     };
     return (
-        <div className="w-full">
+        <div className='w-full content-body p-8 lg:p-20 md:p-10 xl:p-24 2xl:p-40'>
             <h1 className='multicolored-text heading-xl mb-9 section-heading'>Skills &amp; Experience</h1>
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-x-16">
                 <div className="lg:flex col-span-1 lg:col-span-3 gap-x-14">

@@ -1,5 +1,5 @@
 .navbar {
-  position: relative;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
@@ -62,7 +62,7 @@
   transition: all .2s ease-in;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .navbar {
     position: absolute;
     z-index: 11;
@@ -72,7 +72,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   .backdrop  {
     display: none;
     transition: all .2s ease-out;

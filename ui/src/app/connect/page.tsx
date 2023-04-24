@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Connect = ({ data }: any) => {
     return (
-        <div>
+        <div className='w-full content-body p-8 lg:p-20 md:p-10 xl:p-24 2xl:p-40'>
             <h3 className='font-bold tracking-widest'>Get in touch with me to discuss your project, ask a question or just say hello.</h3>
             <div className="grid gap-16 grid-cols-1 lg:grid-cols-2">
                 <div className={`w-full lg:w-[500px] m-auto mb-auto`}>

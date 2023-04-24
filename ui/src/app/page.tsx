@@ -5,6 +5,8 @@ import styles from './page.module.css'
 import { getPublicUrlFetch } from "../../lib/interceptor";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Experience from './experience/page';
+import Connect from './connect/page';
 // import DOMPurify from 'isomorphic-dompurify';
 
 // const getData = async () => {
@@ -22,20 +24,21 @@ export default function Home({ data }: any) {
 
   }, [])
   return (
-    <div>
-      <div className="md:flex md:flex-row md:py-5">
-        {/* <div className="flex-none mx-1 px-5"> */}
-        <div className="md:flex-none">
-          <Image className={`position-absolute ${styles.img_hi}`} src={'/images/img_hi.png'} alt={'hi'} width={250} height={250}></Image>
+    <>
+      <div className='content-body p-8 lg:p-20 md:p-10 xl:p-24 2xl:p-40'>
+        <div className="md:flex md:flex-row md:py-5">
+          {/* <div className="flex-none mx-1 px-5"> */}
+          <div className="md:flex-none">
+            <Image className={`position-absolute ${styles.img_hi}`} src={'/images/img_hi.png'} alt={'hi'} width={250} height={250}></Image>
+          </div>
+          <div className="md:grow mx-0 md:mx-1 mt-5 md:mt-0">
+            <h3 className='font-bold tracking-widest'>my name is</h3>
+            <h1 className='multicolored-text heading-xl'>Priyanka Das</h1>
+            <h2 className='font-bold heading-lg py-3'>Engineer + Photographer</h2>
+            <h3 className='hidden lg:block text-md py-3'>(A generic combo commonly found among engineers worldwide)</h3>
+          </div>
         </div>
-        <div className="md:grow mx-0 md:mx-1 mt-5 md:mt-0">
-          <h3 className='font-bold tracking-widest'>my name is</h3>
-          <h1 className='multicolored-text heading-xl'>Priyanka Das</h1>
-          <h2 className='font-bold heading-lg py-3'>Engineer + Photographer</h2>
-          <h3 className='hidden lg:block text-md py-3'>(A generic combo commonly found among engineers worldwide)</h3>
-        </div>
-      </div>
-      {/* <div className="flex py-5"> */}
+        {/* <div className="flex py-5"> */}
         <div className="w-full px-0 md:px-5 py-5 mt-0 md:mt-5">
           {/* <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(desc) }}></div> */}
           {/* <p className='text-content'>
@@ -49,7 +52,10 @@ export default function Home({ data }: any) {
           <video className='m-auto' width={'60%'} controls src='videos/intro.mp4'></video>
           <h1>test3</h1>
         </div> */}
-      {/* </div> */}
-    </div>
+        {/* </div> */}
+      </div>
+      <Experience />
+      <Connect />
+    </>
   )
 }

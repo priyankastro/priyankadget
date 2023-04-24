@@ -2,7 +2,7 @@ import styles from './page.module.css'
 
 const Portfolio = ({ data }: any) => {
     return (
-        <>
+        <div className='content-body p-8 lg:p-20 md:p-10 xl:p-24 2xl:p-40'>
             <h1 className='multicolored-text heading-xl mb-16 section-heading'>My Portfolio</h1>
             <div className="grid gap-16 lg:gap-24 grid-cols-1 lg:grid-cols-2">
                 <div className={`${styles.box} m-auto mb-14 lg:mb-auto`}>
@@ -16,7 +16,7 @@ const Portfolio = ({ data }: any) => {
                     <img className={styles.image} src={"/images/photography.png"} alt={"Photography"} />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 export default Portfolio;
