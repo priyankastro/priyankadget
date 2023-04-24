@@ -1,5 +1,4 @@
 'use client'
-import styles from './page.module.css'
 
 const ExperienceDetail = ({ data }: any) => {
     return (

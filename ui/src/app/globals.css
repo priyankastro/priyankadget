@@ -128,13 +128,17 @@ a {
   --pastel-yellow: rgb(235 242 142);
   --purple-light: rgba(75, 82, 214, 0.5);
   --text-highlight: rgba(183, 120, 255, 0.89);
-  /* --rainbow-gradient: linear-gradient(-90deg,#adfbda 0,#35c3ff 30%,#76d880 70%,#adfbda 100%); */
-  /* --rainbow-gradient: linear-gradient(-90deg,#35c3ff 30%,#76d8c6 70%,#adfbda 100%); */
-  --rainbow-gradient: linear-gradient(-90deg,#35c3ff 30%,#76d8c6 70%,#7efac6 100%);
+  --bg-dark: rgb(21, 21, 21);
+  --rainbow-gradient: linear-gradient(
+    -90deg,
+    #35c3ff 30%,
+    #76d8c6 70%,
+    #7efac6 100%
+  );
   --font-inter-regular: "Inter-Variable", sans-serif;
   --font-averiaseriflibre-bold: "AveriaSerifLibre-Bold";
 }
-html{
+html {
   font-size: 16px;
 }
 html,
@@ -149,6 +153,27 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 82, 214, 0.712);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(11, 12, 30, 0.532);
+  border: 1px solid var(--purple-light);
+  border-radius: 10px;
 }
 
 h1 {
@@ -190,7 +215,7 @@ p {
 }
 
 .text-purple-bright {
- color: var(--purple-bright);
+  color: var(--purple-bright);
 }
 
 .multicolored-text {
@@ -225,11 +250,11 @@ p {
   font-weight: 500;
   cursor: pointer;
   letter-spacing: 0.1rem;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .btn-contact::before {
   z-index: -1;
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -238,11 +263,11 @@ p {
   color: #0a2143;
   background-image: var(--rainbow-gradient);
   opacity: 0.8;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .btn-contact:hover::before {
   width: 100%;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .btn-contact:hover {
   color: #07172f;
@@ -292,47 +317,15 @@ p {
   } */
 }
 
-.desc-list::before{
+.desc-list::before {
   content: url(../../public/svg/triangle.svg);
   position: absolute;
-  /* bottom: 0; */
   padding-right: 0.5rem;
 }
 
-/* body::-webkit-scrollbar {
-  width: 8px;
+.level-indicator {
+  background: rgba(255, 255, 255, 0.136);
 }
-
-body::-webkit-scrollbar-track {
-  background: #07172f6c;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(75, 82, 214, 0.712);
-  border-radius: 20px;
-} */
-
-/* Works on Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(75, 82, 214, 0.712);
-}
-
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 5px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #07172f6c;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(75, 82, 214, 0.712);
-  border: 3px solid #07172f6c;;
-  border-radius: 10px;
-}
-
-.scroll-hide::-webkit-scrollbar {
-  width: 0;
+.level-indicator>div {
+  background: var(--rainbow-gradient);
 }
